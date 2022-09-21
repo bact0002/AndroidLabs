@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,15 +26,35 @@ public class MainActivity extends AppCompatActivity {
 
         variableBinding.button.setOnClickListener( ( v ) -> {
             model.editString.postValue(variableBinding.myedit.getText().toString());
-            model.editString.observe(this, s -> variableBinding.textview.setText("Your edit has: " + s));
-
         } );
 
+        variableBinding.checkBox.setText("Do you drink coffee?");
+        variableBinding.checkBox.setOnCheckedChangeListener(   (button, isChecked) ->   {
+            variableBinding.checkBox.setText("You drink coffee." + isChecked);
+           // model.isSelected.postValue(variableBinding.checkBox.getText().equals(isChecked));
+        }     );
 
+        variableBinding.switch2.setText("Do you drink coffee?");
+        variableBinding.switch2.setOnCheckedChangeListener(   (button, isChecked) ->   {
+            variableBinding.switch2.setText("You drink coffee." + isChecked);
+           // model.isSelected.postValue(variableBinding.switch2.getText().equals(isChecked));
+        }     );
 
-        //variableBinding.myedit.setText("Edit text");
+        variableBinding.radioButton2.setText("Do you drink coffee?");
+        variableBinding.radioButton2.setOnCheckedChangeListener(   (button, isChecked) ->   {
+            variableBinding.radioButton2.setText("You drink coffee." + isChecked);
+            //model.isSelected.postValue(variableBinding.radioButton2.getText().equals(isChecked));
+        }     );
 
-        //variableBinding.textview.setText("Hello World!");
+        model.editString.observe(this, s -> variableBinding.textview.setText("Your edit has: " + s));
+
+        model.isSelected.observe(this, selected -> {
+            variableBinding.checkBox.setChecked(selected);
+            variableBinding.radioButton2.setChecked(selected);
+            variableBinding.switch2.setChecked(selected);
+
+        });
+
 
     }
 

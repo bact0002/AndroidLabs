@@ -1,31 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="ui.MainActivity">
 
     <TextView
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_message"
-         />
+        android:text="@string/hello_message" />
 
 
     <EditText
         android:id="@+id/myedit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/editmessage"
-        android:hint="@string/hinttext"/>
+        android:hint="@string/hinttext"
+        android:text="@string/editmessage" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_message"
-        />
+        android:text="@string/button_message" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:text="RadioButton" />
+
 
 </LinearLayout>
