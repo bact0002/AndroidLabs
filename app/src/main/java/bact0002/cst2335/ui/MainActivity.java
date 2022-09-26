@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import bact0002.cst2335.R;
 import bact0002.cst2335.data.MainViewModel;
 import bact0002.cst2335.databinding.ActivityMainBinding;
 
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
             variableBinding.radioButton2.setText("You drink coffee." + isChecked);
             model.isSelected.postValue(isChecked);
         }     );
+
+        variableBinding.imageLogo.setImageResource(R.drawable.logo_algonquin);
+        variableBinding.imageLogo.setOnClickListener(click ->
+                Toast.makeText(this, "you clicked on the image", Toast.LENGTH_SHORT).show());
 
         model.editString.observe(this, s -> variableBinding.textview.setText("Your edit has: " + s));
 
