@@ -46,6 +46,12 @@
         android:baselineAligned="false"
         android:text="RadioButton" />
 
+    <ImageView
+        android:id="@+id/image_logo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_algonquin" />
+
     <ImageButton
         android:id="@+id/image_logo"
         android:layout_width="wrap_content"

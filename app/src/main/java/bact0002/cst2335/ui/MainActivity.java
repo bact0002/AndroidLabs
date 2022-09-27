@@ -55,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
                //code below taken from StackOverflow
                 Toast.makeText(this, "The width = " + width + " and height = " + height, Toast.LENGTH_SHORT).show());
 
+        variableBinding.imageLogo1.setImageResource(R.drawable.logo_algonquin);
+        //code below taken from StackOverflow
+        Drawable drawable = getResources().getDrawable(R.drawable.logo_algonquin);
+        int w = d.getIntrinsicWidth();
+        int h = d.getIntrinsicHeight();
+        variableBinding.imageLogo1.setOnClickListener(click ->
+                //code below taken from StackOverflow
+                Toast.makeText(this, "The width = " + w + " and height = " + h, Toast.LENGTH_SHORT).show());
+
         model.isSelected.observe(this, p -> variableBinding.imageLogo.getResources());
 
         model.editString.observe(this, s -> variableBinding.textview.setText("Your edit has: " + s));
