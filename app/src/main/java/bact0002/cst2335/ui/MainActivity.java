@@ -3,6 +3,7 @@ package bact0002.cst2335.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,9 +47,12 @@ public class MainActivity extends AppCompatActivity {
         }     );
 
         variableBinding.imageLogo.setImageResource(R.drawable.logo_algonquin);
-        int width = variableBinding.imageLogo.getMaxWidth();
-        int height = variableBinding.imageLogo.getMaxHeight();
+        //code below taken from StackOverflow
+        Drawable d = getResources().getDrawable(R.drawable.logo_algonquin);
+        int width = d.getIntrinsicWidth();
+        int height = d.getIntrinsicHeight();
         variableBinding.imageLogo.setOnClickListener(click ->
+               //code below taken from StackOverflow
                 Toast.makeText(this, "The width = " + width + " and height = " + height, Toast.LENGTH_SHORT).show());
 
         model.isSelected.observe(this, p -> variableBinding.imageLogo.getResources());
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             variableBinding.checkBox.setChecked(selected);
             variableBinding.radioButton2.setChecked(selected);
             variableBinding.switch2.setChecked(selected);
+            //code below taken from StackOverflow
             Toast.makeText(getApplicationContext(),"This value is now: " + selected, Toast.LENGTH_SHORT).show();
         });
 
