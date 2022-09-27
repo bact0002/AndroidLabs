@@ -32,25 +32,26 @@ public class MainActivity extends AppCompatActivity {
 
         variableBinding.checkBox.setText("Do you drink coffee?");
         variableBinding.checkBox.setOnCheckedChangeListener(   (button, isChecked) ->   {
-            variableBinding.checkBox.setText("You drink coffee." + isChecked);
            model.isSelected.postValue(isChecked);
         }     );
 
         variableBinding.switch2.setText("Do you drink coffee?");
         variableBinding.switch2.setOnCheckedChangeListener(   (button, isChecked) ->   {
-            variableBinding.switch2.setText("You drink coffee." + isChecked);
            model.isSelected.postValue(isChecked);
         }     );
 
         variableBinding.radioButton2.setText("Do you drink coffee?");
         variableBinding.radioButton2.setOnCheckedChangeListener(   (button, isChecked) ->   {
-            variableBinding.radioButton2.setText("You drink coffee." + isChecked);
             model.isSelected.postValue(isChecked);
         }     );
 
         variableBinding.imageLogo.setImageResource(R.drawable.logo_algonquin);
+        int width = variableBinding.imageLogo.getMaxWidth();
+        int height = variableBinding.imageLogo.getMaxHeight();
         variableBinding.imageLogo.setOnClickListener(click ->
-                Toast.makeText(this, "you clicked on the image", Toast.LENGTH_SHORT).show());
+                Toast.makeText(this, "The width = " + width + " and height = " + height, Toast.LENGTH_SHORT).show());
+
+        model.isSelected.observe(this, p -> variableBinding.imageLogo.getResources());
 
         model.editString.observe(this, s -> variableBinding.textview.setText("Your edit has: " + s));
 
